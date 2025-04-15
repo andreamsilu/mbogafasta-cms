@@ -825,3 +825,6 @@
 [2025-04-13 17:33:58] [PHP Error] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 242] Undefined array key "status"
 [2025-04-13 17:33:58] [PHP Error] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 244] Undefined array key "status"
 [2025-04-13 17:33:58] [PHP Error] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 244] ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated
+[15-Apr-2025 12:34:03 UTC] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[15-Apr-2025 12:34:09 UTC] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[15-Apr-2025 12:34:18 UTC] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
