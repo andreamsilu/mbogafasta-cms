@@ -63,7 +63,7 @@ try {
                             <p class="text-muted"><?php echo htmlspecialchars($product['category_name']); ?></p>
                             
                             <div class="mb-3">
-                                <h4>KSh <?php echo number_format($product['price'], 2); ?></h4>
+                                <h4>TSh <?php echo number_format($product['price'], 2); ?></h4>
                             </div>
 
                             <div class="mb-3">

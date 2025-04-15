@@ -76,7 +76,7 @@ try {
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">Price (KSh)</label>
+                                    <label class="form-label">Price (TSh)</label>
                                     <input type="number" class="form-control" name="price" step="0.01" 
                                            value="<?php echo $product['price']; ?>" required>
                                 </div>

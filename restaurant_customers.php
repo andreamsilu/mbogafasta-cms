@@ -115,7 +115,7 @@ $customers = $stmt->fetchAll();
                                     <td><?php echo htmlspecialchars($customer['email']); ?></td>
                                     <td><?php echo htmlspecialchars($customer['phone']); ?></td>
                                     <td><?php echo number_format($customer['total_orders']); ?></td>
-                                    <td>KSh <?php echo number_format($customer['total_spent'], 2); ?></td>
+                                    <td>TSh <?php echo number_format($customer['total_spent'], 2); ?></td>
                                     <td><?php echo date('M d, Y H:i', strtotime($customer['last_order_date'])); ?></td>
                                     <td>
                                         <a href="customer_orders.php?id=<?php echo $customer['user_id']; ?>" 

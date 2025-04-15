@@ -1,6 +1,7 @@
 <?php
 require_once 'includes/auth_check.php';
 require_once 'includes/header.php';
+require_once 'includes/pdf_report.php';
 
 // Get manager's restaurant
 $stmt = $pdo->prepare("
@@ -207,7 +208,7 @@ try {
                             <div class="card bg-success text-white">
                                 <div class="card-body">
                                     <h5 class="card-title">Total Revenue</h5>
-                                    <h2 class="mb-0">KSh <?php echo number_format($sales_stats['total_revenue'], 2); ?></h2>
+                                    <h2 class="mb-0">TSh <?php echo number_format($sales_stats['total_revenue'], 2); ?></h2>
                                 </div>
                             </div>
                         </div>
@@ -223,7 +224,7 @@ try {
                             <div class="card bg-warning text-white">
                                 <div class="card-body">
                                     <h5 class="card-title">Average Order Value</h5>
-                                    <h2 class="mb-0">KSh <?php echo number_format($sales_stats['avg_order_value'], 2); ?></h2>
+                                    <h2 class="mb-0">TSh <?php echo number_format($sales_stats['avg_order_value'], 2); ?></h2>
                                 </div>
                             </div>
                         </div>
@@ -279,7 +280,7 @@ try {
                                             <td><?php echo htmlspecialchars($product['product_name']); ?></td>
                                             <td><?php echo number_format($product['order_count']); ?></td>
                                             <td><?php echo number_format($product['total_quantity']); ?></td>
-                                            <td>KSh <?php echo number_format($product['total_revenue'], 2); ?></td>
+                                            <td>TSh <?php echo number_format($product['total_revenue'], 2); ?></td>
                                         </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -293,8 +294,9 @@ try {
     </div>
 </div>
 
-<!-- Add html2pdf.js library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<!-- Add pdfmake library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 
 <style>
 .chart-container {
@@ -422,408 +424,47 @@ try {
 }
 </style>
 
-<script>
-// Initialize main charts
-const revenueCtx = document.getElementById('revenueChart').getContext('2d');
-const revenueChart = new Chart(revenueCtx, {
-    type: 'line',
-    data: {
-        labels: <?php echo json_encode(array_keys($daily_revenue)); ?>,
-        datasets: [{
-            label: 'Daily Revenue',
-            data: <?php echo json_encode(array_values($daily_revenue)); ?>,
-            borderColor: 'rgba(40, 167, 69, 1)',
-            backgroundColor: 'rgba(40, 167, 69, 0.1)',
-            tension: 0.4,
-            fill: true
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'bottom'
-            }
-        },
-        scales: {
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    callback: function(value) {
-                        return 'KSh ' + value.toLocaleString();
-                    }
-                }
-            }
-        }
-    }
-});
-
-const orderStatusCtx = document.getElementById('orderStatusChart').getContext('2d');
-const orderStatusChart = new Chart(orderStatusCtx, {
-    type: 'doughnut',
-    data: {
-        labels: ['Pending', 'Processing', 'Completed', 'Cancelled', 'Delivered'],
-        datasets: [{
-            data: [
-                <?php echo $status_distribution['Pending'] ?? 0; ?>,
-                <?php echo $status_distribution['Processing'] ?? 0; ?>,
-                <?php echo $status_distribution['Completed'] ?? 0; ?>,
-                <?php echo $status_distribution['Cancelled'] ?? 0; ?>,
-                <?php echo $status_distribution['Delivered'] ?? 0; ?>
-            ],
-            backgroundColor: [
-                'rgba(255, 193, 7, 0.8)',
-                'rgba(0, 123, 255, 0.8)',
-                'rgba(40, 167, 69, 0.8)',
-                'rgba(220, 53, 69, 0.8)',
-                'rgba(23, 162, 184, 0.8)'
-            ],
-            borderColor: '#fff',
-            borderWidth: 2
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'bottom'
-            }
-        },
-        cutout: '60%'
-    }
-});
-
-// Print Report Function
-function printReport() {
-    const printWindow = window.open('', '_blank');
-    printWindow.document.write(`
-        <html>
-            <head>
-                <title>Restaurant Report - <?php echo htmlspecialchars($restaurant['name']); ?></title>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <style>
-                    @media print {
-                        .no-print { display: none !important; }
-                        .card { border: none !important; box-shadow: none !important; }
-                        .card-header { background-color: #f8f9fa !important; }
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="container mt-4">
-                    <h2 class="text-center mb-4">Restaurant Report - <?php echo htmlspecialchars($restaurant['name']); ?></h2>
-                    <p class="text-center mb-4">Period: <?php echo date('M d, Y', strtotime($start_date)); ?> to <?php echo date('M d, Y', strtotime($end_date)); ?></p>
-                    ${document.getElementById('report-content').innerHTML}
-                </div>
-                <script>
-                    window.onload = function() {
-                        // Initialize charts with the same data as the main page
-                        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
-                        new Chart(revenueCtx, {
-                            type: 'line',
-                            data: {
-                                labels: ${JSON.stringify(<?php echo json_encode(array_keys($daily_revenue)); ?>)},
-                                datasets: [{
-                                    label: 'Daily Revenue',
-                                    data: ${JSON.stringify(<?php echo json_encode(array_values($daily_revenue)); ?>)},
-                                    borderColor: 'rgba(40, 167, 69, 1)',
-                                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
-                                    tension: 0.4,
-                                    fill: true
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                plugins: {
-                                    legend: {
-                                        position: 'bottom'
-                                    }
-                                },
-                                scales: {
-                                    y: {
-                                        beginAtZero: true,
-                                        ticks: {
-                                            callback: function(value) {
-                                                return 'KSh ' + value.toLocaleString();
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        });
-                        
-                        const orderStatusCtx = document.getElementById('orderStatusChart').getContext('2d');
-                        new Chart(orderStatusCtx, {
-                            type: 'doughnut',
-                            data: {
-                                labels: ['Pending', 'Processing', 'Completed', 'Cancelled', 'Delivered'],
-                                datasets: [{
-                                    data: [
-                                        ${<?php echo $status_distribution['Pending'] ?? 0; ?>},
-                                        ${<?php echo $status_distribution['Processing'] ?? 0; ?>},
-                                        ${<?php echo $status_distribution['Completed'] ?? 0; ?>},
-                                        ${<?php echo $status_distribution['Cancelled'] ?? 0; ?>},
-                                        ${<?php echo $status_distribution['Delivered'] ?? 0; ?>}
-                                    ],
-                                    backgroundColor: [
-                                        'rgba(255, 193, 7, 0.8)',
-                                        'rgba(0, 123, 255, 0.8)',
-                                        'rgba(40, 167, 69, 0.8)',
-                                        'rgba(220, 53, 69, 0.8)',
-                                        'rgba(23, 162, 184, 0.8)'
-                                    ],
-                                    borderColor: '#fff',
-                                    borderWidth: 2
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                plugins: {
-                                    legend: {
-                                        position: 'bottom'
-                                    }
-                                },
-                                cutout: '60%'
-                            }
-                        });
-                        
-                        // Print after charts are rendered
-                        setTimeout(() => {
-                            window.print();
-                            window.close();
-                        }, 1000);
-                    };
-                </script>
-            </body>
-        </html>
-    `);
-    printWindow.document.close();
-}
-
-// Download Report as PDF
-function downloadReport() {
-    // Create a temporary container for PDF content
-    const pdfContent = document.createElement('div');
-    pdfContent.className = 'pdf-content';
-    
-    // Add header
-    const header = document.createElement('div');
-    header.className = 'pdf-header';
-    header.innerHTML = `
-        <div class="pdf-title">Restaurant Report - <?php echo htmlspecialchars($restaurant['name']); ?></div>
-        <div class="pdf-subtitle">
-            Period: ${document.querySelector('select[name="period"]').value}<br>
-            Generated on: ${new Date().toLocaleDateString()}
-        </div>
-    `;
-    pdfContent.appendChild(header);
-    
-    // Add statistics section
-    const statsSection = document.createElement('div');
-    statsSection.className = 'pdf-section';
-    statsSection.innerHTML = `
-        <div class="pdf-section-title">Key Statistics</div>
-        <div class="pdf-stats">
-            <div class="pdf-stat-card">
-                <div class="pdf-stat-title">Total Orders</div>
-                <div class="pdf-stat-value"><?php echo number_format($sales_stats['total_orders']); ?></div>
-            </div>
-            <div class="pdf-stat-card">
-                <div class="pdf-stat-title">Total Revenue</div>
-                <div class="pdf-stat-value">KSh <?php echo number_format($sales_stats['total_revenue'], 2); ?></div>
-            </div>
-            <div class="pdf-stat-card">
-                <div class="pdf-stat-title">Total Customers</div>
-                <div class="pdf-stat-value"><?php echo number_format($sales_stats['total_customers']); ?></div>
-            </div>
-            <div class="pdf-stat-card">
-                <div class="pdf-stat-title">Average Order Value</div>
-                <div class="pdf-stat-value">KSh <?php echo number_format($sales_stats['avg_order_value'], 2); ?></div>
-            </div>
-        </div>
-    `;
-    pdfContent.appendChild(statsSection);
-    
-    // Add charts section
-    const chartsSection = document.createElement('div');
-    chartsSection.className = 'pdf-section';
-    chartsSection.innerHTML = `
-        <div class="pdf-section-title">Performance Charts</div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="pdf-chart">
-                    <canvas id="pdfRevenueChart" width="400" height="300"></canvas>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="pdf-chart">
-                    <canvas id="pdfOrderStatusChart" width="400" height="300"></canvas>
-                </div>
-            </div>
-        </div>
-    `;
-    pdfContent.appendChild(chartsSection);
-    
-    // Add top products section
-    const productsSection = document.createElement('div');
-    productsSection.className = 'pdf-section';
-    productsSection.innerHTML = `
-        <div class="pdf-section-title">Top Products</div>
-        <table class="pdf-table">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Orders</th>
-                    <th>Quantity Sold</th>
-                    <th>Revenue</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($top_products as $product): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($product['product_name']); ?></td>
-                    <td><?php echo number_format($product['order_count']); ?></td>
-                    <td><?php echo number_format($product['total_quantity']); ?></td>
-                    <td>KSh <?php echo number_format($product['total_revenue'], 2); ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    `;
-    pdfContent.appendChild(productsSection);
-    
-    // Add footer
-    const footer = document.createElement('div');
-    footer.className = 'pdf-footer';
-    footer.innerHTML = `
-        Generated by <?php echo htmlspecialchars($restaurant['name']); ?> Restaurant Management System<br>
-        Report Period: <?php echo date('M d, Y', strtotime($start_date)); ?> to <?php echo date('M d, Y', strtotime($end_date)); ?>
-    `;
-    pdfContent.appendChild(footer);
-    
-    // Add the content to the document
-    document.body.appendChild(pdfContent);
-    
-    // Initialize charts in the PDF content
-    const pdfRevenueCtx = document.getElementById('pdfRevenueChart').getContext('2d');
-    const revenueChart = new Chart(pdfRevenueCtx, {
-        type: 'line',
-        data: {
-            labels: <?php echo json_encode(array_keys($daily_revenue)); ?>,
-            datasets: [{
-                label: 'Daily Revenue',
-                data: <?php echo json_encode(array_values($daily_revenue)); ?>,
-                borderColor: 'rgba(40, 167, 69, 1)',
-                backgroundColor: 'rgba(40, 167, 69, 0.1)',
-                tension: 0.4,
-                fill: true
-            }]
-        },
-        options: {
-            responsive: false,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom'
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            return 'KSh ' + value.toLocaleString();
-                        }
-                    }
-                }
-            }
-        }
-    });
-    
-    const pdfOrderStatusCtx = document.getElementById('pdfOrderStatusChart').getContext('2d');
-    const orderStatusChart = new Chart(pdfOrderStatusCtx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Pending', 'Processing', 'Completed', 'Cancelled', 'Delivered'],
-            datasets: [{
-                data: [
-                    <?php echo $status_distribution['Pending'] ?? 0; ?>,
-                    <?php echo $status_distribution['Processing'] ?? 0; ?>,
-                    <?php echo $status_distribution['Completed'] ?? 0; ?>,
-                    <?php echo $status_distribution['Cancelled'] ?? 0; ?>,
-                    <?php echo $status_distribution['Delivered'] ?? 0; ?>
-                ],
-                backgroundColor: [
-                    'rgba(255, 193, 7, 0.8)',
-                    'rgba(0, 123, 255, 0.8)',
-                    'rgba(40, 167, 69, 0.8)',
-                    'rgba(220, 53, 69, 0.8)',
-                    'rgba(23, 162, 184, 0.8)'
-                ],
-                borderColor: '#fff',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: false,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom'
-                }
-            },
-            cutout: '60%'
-        }
-    });
-    
-    // Generate PDF
-    const options = {
-        margin: 10,
-        filename: `restaurant_report_${new Date().toISOString().split('T')[0]}.pdf`,
-        html2canvas: { 
-            scale: 2,
-            useCORS: true,
-            logging: true,
-            allowTaint: true
-        },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-    
-    // Wait for charts to render before generating PDF
-    setTimeout(() => {
-        html2pdf().set(options).from(pdfContent).save().then(() => {
-            // Remove the temporary content
-            document.body.removeChild(pdfContent);
-        });
-    }, 1000);
-}
-
-// Add print and download buttons to the page
-document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('.card-header');
-    const buttons = document.createElement('div');
-    buttons.className = 'float-end no-print';
-    buttons.innerHTML = `
-        <button onclick="printReport()" class="btn btn-sm btn-secondary me-2">
-            <i class="fas fa-print me-1"></i>Print
-        </button>
-        <button onclick="downloadReport()" class="btn btn-sm btn-success">
-            <i class="fas fa-download me-1"></i>Download
-        </button>
-    `;
-    header.appendChild(buttons);
-});
-</script>
-
 <!-- Add Font Awesome from CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <!-- Add main.js script -->
 <script src="assets/js/main.js"></script>
+
+<script>
+// Pass data to the charts
+window.dailyRevenueLabels = <?php echo json_encode(array_keys($daily_revenue)); ?>;
+window.dailyRevenueData = <?php echo json_encode(array_values($daily_revenue)); ?>;
+window.dailyOrderCount = <?php echo json_encode(array_values($daily_orders)); ?>;
+window.statusDistributionData = [
+    <?php echo $status_distribution['Pending'] ?? 0; ?>,
+    <?php echo $status_distribution['Processing'] ?? 0; ?>,
+    <?php echo $status_distribution['Completed'] ?? 0; ?>,
+    <?php echo $status_distribution['Cancelled'] ?? 0; ?>,
+    <?php echo $status_distribution['Delivered'] ?? 0; ?>
+];
+
+// Download Report as PDF
+function downloadReport() {
+    try {
+        const restaurantId = <?php echo $restaurant['restaurant_id']; ?>;
+        const startDate = '<?php echo $start_date; ?>';
+        const endDate = '<?php echo $end_date; ?>';
+        
+        console.log('Downloading report with params:', {
+            restaurantId,
+            startDate,
+            endDate
+        });
+        
+        const url = `generate_pdf.php?restaurant_id=${restaurantId}&start_date=${startDate}&end_date=${endDate}`;
+        console.log('Generated URL:', url);
+        
+        window.location.href = url;
+    } catch (error) {
+        console.error('Error in downloadReport:', error);
+        alert('Error generating report. Please try again.');
+    }
+}
+</script>
 
 <?php require_once 'includes/footer.php'; ?> 

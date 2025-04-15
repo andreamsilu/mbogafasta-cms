@@ -129,7 +129,7 @@ try {
                                     </td>
                                     <td><?php echo htmlspecialchars($product['product_name']); ?></td>
                                     <td><?php echo htmlspecialchars($product['category_name']); ?></td>
-                                    <td>KSh <?php echo number_format($product['price'], 2); ?></td>
+                                    <td>TSh <?php echo number_format($product['price'], 2); ?></td>
                                     <td><?php echo $product['stock_quantity']; ?></td>
                                     <td>
                                         <span class="badge bg-<?php echo $product['stock_quantity'] > 0 ? 'success' : 'danger'; ?>">

@@ -171,7 +171,7 @@ $order_statuses = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
                             <div class="card bg-success text-white">
                                 <div class="card-body">
                                     <h5 class="card-title">Total Revenue</h5>
-                                    <h2 class="mb-0">KSh <?php echo number_format($stats['total_revenue'], 2); ?></h2>
+                                    <h2 class="mb-0">TSh <?php echo number_format($stats['total_revenue'], 2); ?></h2>
                                 </div>
                             </div>
                         </div>
@@ -235,7 +235,7 @@ $order_statuses = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
                                         <tr>
                                             <td>#<?php echo $order['order_id']; ?></td>
                                             <td><?php echo htmlspecialchars($order['customer_name']); ?></td>
-                                            <td>KSh <?php echo number_format($order['total_amount'], 2); ?></td>
+                                            <td>TSh <?php echo number_format($order['total_amount'], 2); ?></td>
                                             <td>
                                                 <span class="badge bg-<?php 
                                                     echo $order['order_status'] == 'Completed' ? 'success' : 
@@ -389,7 +389,7 @@ new Chart(revenueCtx, {
                 beginAtZero: true,
                 ticks: {
                     callback: function(value) {
-                        return 'KSh ' + value.toLocaleString();
+                        return 'TSh ' + value.toLocaleString();
                     }
                 }
             }

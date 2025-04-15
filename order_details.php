@@ -249,24 +249,24 @@ echo "<!-- Debug: Order history count: " . count($order_history) . " -->";
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="border-end text-end align-middle">KSh <?php echo number_format($item['price'], 2); ?></td>
+                                            <td class="border-end text-end align-middle">TSh <?php echo number_format($item['price'], 2); ?></td>
                                             <td class="border-end text-center align-middle"><?php echo $item['quantity']; ?></td>
-                                            <td class="text-end align-middle fw-bold">KSh <?php echo number_format($item['total_price'], 2); ?></td>
+                                            <td class="text-end align-middle fw-bold">TSh <?php echo number_format($item['total_price'], 2); ?></td>
                                         </tr>
                                         <?php endforeach; ?>
                                     </tbody>
                                     <tfoot class="table-light">
                                         <tr>
                                             <td colspan="3" class="border-end text-end"><strong>Subtotal:</strong></td>
-                                            <td class="text-end">KSh <?php echo number_format($order['subtotal'] ?? 0, 2); ?></td>
+                                            <td class="text-end">TSh <?php echo number_format($order['subtotal'] ?? 0, 2); ?></td>
                                         </tr>
                                         <tr>
                                             <td colspan="3" class="border-end text-end"><strong>Delivery Fee:</strong></td>
-                                            <td class="text-end">KSh <?php echo number_format($order['delivery_fee'] ?? 0, 2); ?></td>
+                                            <td class="text-end">TSh <?php echo number_format($order['delivery_fee'] ?? 0, 2); ?></td>
                                         </tr>
                                         <tr class="table-active">
                                             <td colspan="3" class="border-end text-end"><strong>Total Amount:</strong></td>
-                                            <td class="text-end fw-bold">KSh <?php echo number_format($order['total_amount'] ?? 0, 2); ?></td>
+                                            <td class="text-end fw-bold">TSh <?php echo number_format($order['total_amount'] ?? 0, 2); ?></td>
                                         </tr>
                                     </tfoot>
                                 </table>

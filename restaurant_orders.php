@@ -107,7 +107,7 @@ $orders = $stmt->fetchAll();
                                 <tr>
                                     <td>#<?php echo $order['order_id']; ?></td>
                                     <td><?php echo htmlspecialchars($order['customer_name']); ?></td>
-                                    <td>KSh <?php echo number_format($order['total_amount'], 2); ?></td>
+                                    <td>TSh <?php echo number_format($order['total_amount'], 2); ?></td>
                                     <td>
                                         <span class="badge bg-<?php 
                                             echo $order['status'] == 'completed' ? 'success' : 
