@@ -1,0 +1,23 @@
+# Disable directory listing
+Options -Indexes
+
+# Restrict access to specific file types
+<FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|htm|html|shtml|sh|cgi)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Allow only image files
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Set maximum file size (10MB)
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+
+# Prevent script execution
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule> 

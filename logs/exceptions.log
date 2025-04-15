@@ -1,0 +1,395 @@
+[2025-04-12 07:46:50] [Exception] [User: guest] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/login.php] [Line: 29] Call to a member function prepare() on null
+Stack Trace:
+#0 {main}
+[2025-04-12 08:08:17] [Exception] [User: guest] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/login.php] [Line: 29] Call to a member function prepare() on null
+Stack Trace:
+#0 {main}
+[2025-04-12 08:31:34] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/includes/header.php] [Line: 7] Call to undefined method Auth::getCurrentUser()
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/config/database.php(1): require_once()
+#1 /var/www/html/myprojects/mbogafasta-cms/index.php(4): require_once('...')
+#2 {main}
+[2025-04-12 15:55:20] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 7] Failed opening required 'includes/db.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-12 15:55:23] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 7] Failed opening required 'includes/db.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-12 15:59:51] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/users.php] [Line: 78] Call to undefined method Database::prepare()
+Stack Trace:
+#0 {main}
+[2025-04-12 16:00:47] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/users.php] [Line: 78] Call to undefined method Database::prepare()
+Stack Trace:
+#0 {main}
+[2025-04-13 02:20:36] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 02:20:42] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 02:21:51] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 33] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(33): PDO->prepare()
+#1 {main}
+[2025-04-13 02:23:08] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 47] Call to undefined function logError()
+Stack Trace:
+#0 {main}
+[2025-04-13 02:23:09] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 47] Call to undefined function logError()
+Stack Trace:
+#0 {main}
+[2025-04-13 02:23:28] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 47] Call to undefined function logError()
+Stack Trace:
+#0 {main}
+[2025-04-13 02:23:33] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 47] Call to undefined function logError()
+Stack Trace:
+#0 {main}
+[2025-04-13 02:23:34] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 47] Call to undefined function logError()
+Stack Trace:
+#0 {main}
+[2025-04-13 02:23:36] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 47] Call to undefined function logError()
+Stack Trace:
+#0 {main}
+[2025-04-13 02:23:38] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 02:23:42] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 02:23:47] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 02:25:26] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 02:25:27] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 02:25:30] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 47] Call to undefined function logError()
+Stack Trace:
+#0 {main}
+[2025-04-13 02:25:32] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 47] Call to undefined function logError()
+Stack Trace:
+#0 {main}
+[2025-04-13 02:26:29] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:26:39] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:26:42] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:26:46] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:26:49] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:27:36] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 02:27:40] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:27:50] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:28:57] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:29:13] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:30:26] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:30:27] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:30:41] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:30:43] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:30:44] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:30:46] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:30:46] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:30:47] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 02:31:14] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:31:15] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:31:17] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:31:17] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:33:18] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 02:57:36] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 02:57:45] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 02:58:49] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 03:00:50] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 03:02:54] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 03:03:05] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 03:03:10] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 03:03:55] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:04:00] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:05:20] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:06:12] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:06:12] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:06:34] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:06:36] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:06:37] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 03:06:41] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 03:06:42] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:06:44] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:07:47] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:07:46] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 03:07:50] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurants.php] [Line: 76] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurants.php(76): PDO->prepare()
+#1 {main}
+[2025-04-13 03:08:01] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 06:05:56] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 06:08:27] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 06:08:31] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 06:10:40] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.username' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 06:12:11] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.phone' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 06:13:25] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:13:55] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:14:29] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:26:44] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:29:55] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'on clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:29:59] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'on clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:33:27] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:33:54] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'on clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:35:02] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'on clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:35:11] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'on clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:35:50] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'on clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:35:52] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'on clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:35:51] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'on clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:38:16] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/managers.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'on clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/managers.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:43:21] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:43:47] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:44:02] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:44:40] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:45:19] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.user_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 07:46:19] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 34] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.manager_id' in 'where clause'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(34): PDO->prepare()
+#1 {main}
+[2025-04-13 08:04:47] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required '/var/www/html/myprojects/mbogafasta-cms/includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 10:19:30] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 10:19:41] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 10:20:01] [Exception] [User: 7] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36] [File: /var/www/html/myprojects/mbogafasta-cms/dashboard.php] [Line: 297] Failed opening required 'includes/footer.php' (include_path='.:/usr/share/php')
+Stack Trace:
+#0 {main}
+[2025-04-13 10:40:41] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 99] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.status' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(99): PDO->prepare()
+#1 {main}
+[2025-04-13 10:40:44] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 99] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.status' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(99): PDO->prepare()
+#1 {main}
+[2025-04-13 11:08:26] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 99] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.status' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(99): PDO->prepare()
+#1 {main}
+[2025-04-13 13:22:37] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 99] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.status' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(99): PDO->prepare()
+#1 {main}
+[2025-04-13 13:22:54] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 99] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.status' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(99): PDO->prepare()
+#1 {main}
+[2025-04-13 17:18:37] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 99] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.status' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(99): PDO->prepare()
+#1 {main}
+[2025-04-13 17:26:08] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php] [Line: 99] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.status' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/manager_dashboard.php(99): PDO->prepare()
+#1 {main}
+[2025-04-13 17:29:56] [Exception] [User: 6] [IP: ::1] [Browser: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0] [File: /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php] [Line: 99] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.status' in 'field list'
+Stack Trace:
+#0 /var/www/html/myprojects/mbogafasta-cms/restaurant_dashboard.php(99): PDO->prepare()
+#1 {main}
