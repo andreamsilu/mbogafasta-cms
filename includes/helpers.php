@@ -244,11 +244,20 @@ function uploadImage($file, $targetDir, $filename = null) {
         return ['success' => false, 'message' => 'Failed to move uploaded file'];
     }
 
-    // Return success with relative path
+    // Get the site URL from config
+    $site_url = defined('SITE_URL') ? SITE_URL : 'http://localhost/mbogafasta-cms';
+    
+    // Create relative path for database storage
+    $relative_path = 'uploads/' . $targetDir . '/' . $new_filename;
+    
+    // Create full URL path
+    $full_url = rtrim($site_url, '/') . '/' . $relative_path;
+    
     return [
         'success' => true,
         'message' => 'File uploaded successfully',
-        'path' => 'uploads/' . $targetDir . '/' . $new_filename
+        'path' => $full_url,
+        'relative_path' => $relative_path
     ];
 }
 

@@ -69,30 +69,19 @@ if (isset($_POST['add_restaurant'])) {
         // Handle image upload
         $image_url = null;
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-            $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
-            $max_size = 5 * 1024 * 1024; // 5MB
-
-            if (!in_array($_FILES['image']['type'], $allowed_types)) {
-                throw new Exception("Invalid image type. Only JPEG, PNG, and GIF are allowed");
-            }
-
-            if ($_FILES['image']['size'] > $max_size) {
-                throw new Exception("Image size too large. Maximum size is 5MB");
-            }
-
-            $upload_dir = 'uploads/restaurants/';
-            if (!file_exists($upload_dir)) {
-                mkdir($upload_dir, 0777, true);
-            }
-
-            $file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-            $file_name = uniqid() . '.' . $file_extension;
-            $target_path = $upload_dir . $file_name;
-
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
-                $image_url = $target_path;
-            } else {
-                throw new Exception("Failed to upload image");
+            try {
+                $upload_result = uploadImage($_FILES['image'], 'restaurants');
+                
+                if (!$upload_result['success']) {
+                    throw new Exception($upload_result['message']);
+                }
+                
+                // Use the full URL path for the image
+                $image_url = $upload_result['path'];
+                logSystemEvent('file_upload_success', "Image uploaded successfully: " . basename($image_url));
+            } catch (Exception $e) {
+                logSystemEvent('file_upload_error', "Image upload failed: " . $e->getMessage());
+                throw new Exception("An error occurred while uploading the image: " . $e->getMessage());
             }
         }
 
@@ -161,30 +150,19 @@ if (isset($_POST['edit_restaurant'])) {
         // Handle image upload
         $image_url = null;
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-            $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
-            $max_size = 5 * 1024 * 1024; // 5MB
-
-            if (!in_array($_FILES['image']['type'], $allowed_types)) {
-                throw new Exception("Invalid image type. Only JPEG, PNG, and GIF are allowed");
-            }
-
-            if ($_FILES['image']['size'] > $max_size) {
-                throw new Exception("Image size too large. Maximum size is 5MB");
-            }
-
-            $upload_dir = 'uploads/restaurants/';
-            if (!file_exists($upload_dir)) {
-                mkdir($upload_dir, 0777, true);
-            }
-
-            $file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-            $file_name = uniqid() . '.' . $file_extension;
-            $target_path = $upload_dir . $file_name;
-
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
-                $image_url = $target_path;
-            } else {
-                throw new Exception("Failed to upload image");
+            try {
+                $upload_result = uploadImage($_FILES['image'], 'restaurants');
+                
+                if (!$upload_result['success']) {
+                    throw new Exception($upload_result['message']);
+                }
+                
+                // Use the full URL path for the image
+                $image_url = $upload_result['path'];
+                logSystemEvent('file_upload_success', "Image uploaded successfully: " . basename($image_url));
+            } catch (Exception $e) {
+                logSystemEvent('file_upload_error', "Image upload failed: " . $e->getMessage());
+                throw new Exception("An error occurred while uploading the image: " . $e->getMessage());
             }
         }
 

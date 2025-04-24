@@ -85,7 +85,7 @@ try {
                                 <option value="">All Categories</option>
                                 <?php foreach ($categories as $category): ?>
                                     <option value="<?php echo $category['category_id']; ?>">
-                                        <?php echo htmlspecialchars($category['name']); ?>
+                                        <?php echo htmlspecialchars($category['category_name']); ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
@@ -179,25 +179,30 @@ try {
                     <input type="hidden" name="restaurant_id" value="<?php echo $restaurant['restaurant_id']; ?>">
                     
                     <div class="mb-3">
-                        <label class="form-label">Name</label>
-                        <input type="text" class="form-control" name="name" required>
+                        <label class="form-label">Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="product_name" required minlength="2">
                     </div>
                     
                     <div class="mb-3">
-                        <label class="form-label">Category</label>
+                        <label class="form-label">Category <span class="text-danger">*</span></label>
                         <select class="form-select" name="category_id" required>
                             <option value="">Select Category</option>
                             <?php foreach ($categories as $category): ?>
                             <option value="<?php echo $category['category_id']; ?>">
-                                <?php echo htmlspecialchars($category['name']); ?>
+                                <?php echo htmlspecialchars($category['category_name']); ?>
                             </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     
                     <div class="mb-3">
-                        <label class="form-label">Price</label>
-                        <input type="number" class="form-control" name="price" step="0.01" required>
+                        <label class="form-label">Price <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" name="price" step="0.01" required min="0.01">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Stock Quantity <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" name="stock_quantity" required min="0" value="0">
                     </div>
                     
                     <div class="mb-3">
@@ -206,16 +211,19 @@ try {
                     </div>
                     
                     <div class="mb-3">
-                        <label class="form-label">Image</label>
-                        <input type="file" class="form-control" name="image" accept="image/*" required>
+                        <label class="form-label">Images</label>
+                        <input type="file" class="form-control" name="images[]" accept="image/*" multiple>
+                        <small class="text-muted">You can select multiple images</small>
+                        <div id="imagePreview" class="mt-2 d-flex flex-wrap gap-2">
+                            <!-- Image previews will be shown here -->
+                        </div>
                     </div>
                     
                     <div class="mb-3">
-                        <label class="form-label">Status</label>
-                        <select class="form-select" name="status" required>
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                        </select>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="is_active" value="1" checked>
+                            <label class="form-check-label">Active</label>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -322,10 +330,71 @@ function deleteProduct(productId) {
     }
 }
 
+// Image preview functionality
+document.querySelector('input[name="images[]"]').addEventListener('change', function(e) {
+    const preview = document.getElementById('imagePreview');
+    preview.innerHTML = ''; // Clear existing previews
+    
+    Array.from(e.target.files).forEach(file => {
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.className = 'img-thumbnail';
+                img.style.maxWidth = '150px';
+                img.style.maxHeight = '150px';
+                preview.appendChild(img);
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+});
+
+// Form validation
+document.getElementById('addProductForm').addEventListener('submit', function(e) {
+    const requiredFields = document.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.classList.add('is-invalid');
+        } else {
+            field.classList.remove('is-invalid');
+        }
+    });
+    
+    if (!isValid) {
+        e.preventDefault();
+        alert('Please fill in all required fields');
+    }
+});
+
+// Save product function
 function saveProduct() {
     const form = document.getElementById('addProductForm');
     const formData = new FormData(form);
     
+    // Validate required fields
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.classList.add('is-invalid');
+        } else {
+            field.classList.remove('is-invalid');
+        }
+    });
+    
+    if (!isValid) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    // Submit form
     fetch('process_product.php', {
         method: 'POST',
         body: formData
@@ -333,9 +402,17 @@ function saveProduct() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            // Close the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addProductModal'));
+            modal.hide();
+            
+            // Show success message
+            alert(data.message);
+            
+            // Reload the page to show the new product
             location.reload();
         } else {
-            alert(data.message || 'Error saving product');
+            alert(data.message);
         }
     })
     .catch(error => {

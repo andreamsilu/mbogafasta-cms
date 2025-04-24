@@ -57,6 +57,12 @@ $user_role = $stmt->fetchColumn();
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <li class="<?php echo $current_page == 'restaurant_profile.php' ? 'active' : ''; ?>">
+                    <a href="restaurant_profile.php">
+                        <i class="fas fa-store"></i>
+                        <span>Restaurant Profile</span>
+                    </a>
+                </li>
                 <li class="<?php echo $current_page == 'restaurant_products.php' ? 'active' : ''; ?>">
                     <a href="restaurant_products.php">
                         <i class="fas fa-utensils"></i>
@@ -81,16 +87,16 @@ $user_role = $stmt->fetchColumn();
                         <span>Reports</span>
                     </a>
                 </li>
+                <li class="<?php echo $current_page == 'manager_profile.php' ? 'active' : ''; ?>">
+                    <a href="manager_profile.php">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
             <?php endif; ?>
         </ul>
 
         <ul class="list-unstyled components mt-auto">
-            <li class="<?php echo $current_page == 'profile.php' ? 'active' : ''; ?>">
-                <a href="profile.php">
-                    <i class="fas fa-user"></i>
-                    <span>Profile</span>
-                </a>
-            </li>
             <li>
                 <a href="logout.php" class="text-danger">
                     <i class="fas fa-sign-out-alt"></i>

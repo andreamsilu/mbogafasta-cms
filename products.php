@@ -202,19 +202,23 @@ try {
             <form method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Name</label>
-                        <input type="text" class="form-control" name="product_name" required>
+                        <label class="form-label">Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="product_name" required minlength="2">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Description</label>
                         <textarea class="form-control" name="description" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Price</label>
-                        <input type="number" class="form-control" name="price" step="0.01" required>
+                        <label class="form-label">Price <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" name="price" step="0.01" required min="0.01">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Category</label>
+                        <label class="form-label">Stock Quantity <span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" name="stock_quantity" required min="0" value="0">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category <span class="text-danger">*</span></label>
                         <select class="form-select" name="category_id" required>
                             <option value="">Select Category</option>
                             <?php foreach ($categories as $category): ?>
@@ -225,7 +229,7 @@ try {
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Restaurant</label>
+                        <label class="form-label">Restaurant <span class="text-danger">*</span></label>
                         <select class="form-select" name="restaurant_id" required>
                             <option value="">Select Restaurant</option>
                             <?php foreach ($restaurants as $restaurant): ?>
@@ -236,8 +240,12 @@ try {
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Image</label>
-                        <input type="file" class="form-control" name="image" accept="image/*">
+                        <label class="form-label">Images</label>
+                        <input type="file" class="form-control" name="images[]" accept="image/*" multiple>
+                        <small class="text-muted">You can select multiple images</small>
+                        <div id="imagePreview" class="mt-2 d-flex flex-wrap gap-2">
+                            <!-- Image previews will be shown here -->
+                        </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-check">
@@ -301,8 +309,12 @@ try {
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Image</label>
-                        <input type="file" class="form-control" name="image" accept="image/*">
+                        <label class="form-label">Images</label>
+                        <input type="file" class="form-control" name="images[]" accept="image/*" multiple>
+                        <small class="text-muted">You can select multiple images</small>
+                        <div id="imagePreview" class="mt-2 d-flex flex-wrap gap-2">
+                            <!-- Image previews will be shown here -->
+                        </div>
                     </div>
                     <div class="mb-3">
                         <div class="form-check">
@@ -414,7 +426,50 @@ try {
             $('#edit_restaurant_id').val(product.restaurant_id);
             $('#edit_is_active').prop('checked', product.is_active == 1);
         });
+
+        // Image preview functionality
+        document.querySelector('input[name="images[]"]').addEventListener('change', function(e) {
+            const preview = document.getElementById('imagePreview');
+            preview.innerHTML = ''; // Clear existing previews
+            
+            Array.from(e.target.files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'img-thumbnail';
+                        img.style.maxWidth = '150px';
+                        img.style.maxHeight = '150px';
+                        preview.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
     });
+</script>
+
+<!-- Add client-side validation script -->
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    const requiredFields = document.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.classList.add('is-invalid');
+        } else {
+            field.classList.remove('is-invalid');
+        }
+    });
+    
+    if (!isValid) {
+        e.preventDefault();
+        alert('Please fill in all required fields');
+    }
+});
 </script>
 
 <style>
