@@ -5,44 +5,66 @@ require_once '../config/database.php';
 $db = Database::getInstance();
 $message = '';
 
-// Handle form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
-        // Get current settings
-        $settings = $db->fetchAll("SELECT * FROM settings");
-        $settingsMap = [];
-        foreach ($settings as $setting) {
-            $settingsMap[$setting['setting_key']] = $setting;
-        }
-
-        // Update settings
-        foreach ($_POST['settings'] as $key => $value) {
-            if (isset($settingsMap[$key])) {
-                $db->update(
-                    'settings',
-                    ['setting_value' => $value],
-                    'setting_key = ?',
-                    [$key]
-                );
-            } else {
-                $db->insert('settings', [
-                    'setting_key' => $key,
-                    'setting_value' => $value
-                ]);
+try {
+    // Test database connection
+    $db->query("SELECT 1");
+    
+    // Handle form submission
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        try {
+            // Get current settings
+            $settings = $db->fetchAll("SELECT * FROM settings");
+            $settingsMap = [];
+            foreach ($settings as $setting) {
+                $settingsMap[$setting['setting_key']] = $setting;
             }
+
+            // Update settings
+            foreach ($_POST['settings'] as $key => $value) {
+                if (isset($settingsMap[$key])) {
+                    $db->update(
+                        'settings',
+                        ['setting_value' => $value],
+                        'setting_key = ?',
+                        [$key]
+                    );
+                } else {
+                    $db->insert('settings', [
+                        'setting_key' => $key,
+                        'setting_value' => $value
+                    ]);
+                }
+            }
+
+            $message = '<div class="alert alert-success">Settings updated successfully!</div>';
+        } catch (Exception $e) {
+            error_log("Settings update error: " . $e->getMessage());
+            $message = '<div class="alert alert-danger">Error updating settings: ' . htmlspecialchars($e->getMessage()) . '</div>';
         }
-
-        $message = '<div class="alert alert-success">Settings updated successfully!</div>';
-    } catch (Exception $e) {
-        $message = '<div class="alert alert-danger">Error updating settings: ' . htmlspecialchars($e->getMessage()) . '</div>';
     }
-}
 
-// Get current settings
-$settings = $db->fetchAll("SELECT * FROM settings");
-$settingsMap = [];
-foreach ($settings as $setting) {
-    $settingsMap[$setting['setting_key']] = $setting['setting_value'];
+    // Get current settings
+    $settings = $db->fetchAll("SELECT * FROM settings");
+    if ($settings === false) {
+        throw new Exception("Failed to fetch settings from database");
+    }
+    
+    $settingsMap = [];
+    foreach ($settings as $setting) {
+        $settingsMap[$setting['setting_key']] = $setting['setting_value'];
+    }
+
+} catch (Exception $e) {
+    error_log("Settings page error: " . $e->getMessage());
+    $message = '<div class="alert alert-danger">Database Error: ' . htmlspecialchars($e->getMessage()) . '</div>';
+    // Set default values to prevent PHP notices
+    $settingsMap = [
+        'site_name' => 'MbogaFasta CMS',
+        'site_email' => 'admin@mbogafasta.com',
+        'timezone' => 'Africa/Nairobi',
+        'maintenance_mode' => '0',
+        'items_per_page' => '10'
+    ];
 }
 
 // Include header
