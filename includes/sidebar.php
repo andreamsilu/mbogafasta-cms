@@ -44,7 +44,7 @@ $user_role = $stmt->fetchColumn();
                     </a>
                 </li>
                 <li class="<?php echo $current_page == 'settings.php' ? 'active' : ''; ?>">
-                    <a href="settings.php">
+                    <a href="../admin/settings.php">
                         <i class="fas fa-cog"></i>
                         <span>Settings</span>
                     </a>
