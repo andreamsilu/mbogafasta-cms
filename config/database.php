@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/env.php';
+require_once __DIR__ . '/../includes/helpers.php';
 
 try {
     $dsn = sprintf(
